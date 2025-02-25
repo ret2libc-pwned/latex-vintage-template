@@ -1,0 +1,159 @@
+\documentclass[12pt]{article}
+
+% --- XeLaTeX and CJK Settings ---
+\usepackage{fontspec}
+\usepackage{xeCJK} % Support for CJK characters
+
+\setmainfont{XCharter}
+
+% Or force using Charter.ttc font (in macOS)
+% \setmainfont{Charter}[
+%     Path = /System/Library/Fonts/Supplemental/,
+%     Extension = .ttc
+% ]
+
+% Set main CJK font
+\setCJKmainfont{SimSong}[BoldFont=STHeiti, ItalicFont=STKaiti]
+
+% --- Color, Layout, and Hyperlink Settings ---
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{sectsty}   % Adjust section title styles
+\usepackage{listings}  % Code block environment
+\usepackage{amsmath}
+\usepackage{unicode-math}
+\usepackage{ulem}      % Underline text support
+\usepackage{tocloft}   % Table of Contents customization
+\usepackage{parskip}   % Fix abnormal indentations
+
+% --- Page Margin Settings ---
+\geometry{a4paper, margin=1in}
+
+% --- Color Definitions ---
+\definecolor{bgcolor}{HTML}{FFFFFF}       % Background: White
+\definecolor{textcolor}{HTML}{000000}     % Main Text: Black
+\definecolor{primary}{HTML}{428BCA}       % Primary Theme
+\definecolor{primaryBtnBorder}{HTML}{285E8E} % Button Border & Links
+\definecolor{metaContent}{HTML}{5B808D}   % Metadata Content
+\definecolor{blockquoteBG}{HTML}{F0F0F0}  % Blockquote Background
+\definecolor{brown}{HTML}{A52A2A}
+\definecolor{blue}{HTML}{285E8E}
+\definecolor{red}{HTML}{FF0000}           % Red Color Example
+
+% --- Hyperlink Settings ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryBtnBorder,
+    urlcolor=primaryBtnBorder,
+    citecolor=primaryBtnBorder
+}
+
+% --- Section Styles ---
+\sectionfont{\centering\Large\bfseries\color{textcolor}} % h1: Centered, Large, Black
+\subsectionfont{\large\bfseries\color{brown}}   % h2: Brown
+\subsubsectionfont{\normalsize\bfseries\color{blue}} % h3: Blue
+
+% --- Title Style ---
+\title{\bfseries \centering Document Title}
+
+% --- Code Block Styles ---
+\lstset{
+    basicstyle=\ttfamily\small,            
+    backgroundcolor=\color{bgcolor},         
+    frame=single,                           
+    breaklines=true,                         
+    captionpos=b
+}
+
+% --- Blockquote Styles ---
+\usepackage{tcolorbox}
+\newtcolorbox{quotebox}{colback=blockquoteBG, colframe=blockquoteBG, left=1em, right=1em, top=1em, bottom=1em, fonttitle=\itshape, before upper=\itshape}
+
+% --- Header & Footer (Optional) ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Document Title}
+\rhead{\thepage}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\begin{abstract}
+This document template follows a structured layout using XeLaTeX, incorporating various formatting features like colors, typography, and code highlighting.
+\end{abstract}
+
+\section{Introduction}
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam.
+
+\textit{这句话}用来测试 CJK 支持。
+
+\subsection{Subsection}
+
+Foo
+
+\subsubsection{Subsubsection}
+
+Bar
+
+\section{Text Formatting}
+This section demonstrates different text styles:
+
+\begin{itemize}
+    \item \textit{Italicized text}
+    \item \textbf{Bold text}
+    \item \textcolor{red}{Colored text (Red)}
+    \item \uline{Underlined text}
+    \item \sout{Strikethrough text}
+\end{itemize}
+
+\section{Lists}
+Here is an unordered list:
+\begin{itemize}
+    \item First item
+    \item Second item
+    \item Third item
+\end{itemize}
+
+And an ordered list:
+\begin{enumerate}
+    \item First item
+    \item Second item
+    \item Third item
+\end{enumerate}
+
+\section{Blockquote Example}
+\begin{quotebox}
+    ``This is a sample quote using the blockquote style.''
+\end{quotebox}
+
+\section{Mathematical Equations}
+Here is an inline formula: $E = mc^2$
+
+And a block formula:
+\[
+    \sum_{i=1}^{n} i = \frac{n(n+1)}{2}
+\]
+
+\section{Hyperlinks Example}
+Here is an example of an external link: \href{https://www.example.com}{Visit Example Website}
+
+Here is a reference to a section: \hyperref[sec:code]{Go to Code Example}
+
+\section{Code Example}\label{sec:code}
+Here is a Python code snippet:
+\begin{lstlisting}[language=Python, caption=Python Example]
+def greet():
+    print("Hello, World!")
+
+greet()
+\end{lstlisting}
+
+\section{Conclusion}
+This template provides a foundation for using XeLaTeX with Markdown-style formatting, including text styles, lists, blockquotes, code highlighting, hyperlinks, table of contents, and mathematical equations.
+
+\end{document}
